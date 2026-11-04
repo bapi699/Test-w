@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garden Control Panel</title>
+  <meta name="description" content="Craftland garden map ko plan, manage aur share karne ke liye companion website." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🌿 <span>Garden Control Panel</span></div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="planner">🗺️ Planner</button>
+      <button class="tab" data-tab="map">📋 Map Info</button>
+      <button class="tab" data-tab="tasks">✅ Tasks</button>
+      <button class="tab" data-tab="data">💾 Save / Load</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PLANNER -->
+    <section id="planner" class="panel active">
+      <div class="planner-layout">
+        <aside class="toolbox card">
+          <h2>Tools</h2>
+          <div id="palette" class="palette"></div>
+          <label class="row">Grid size
+            <select id="gridSize">
+              <option value="10">10 × 10</option>
+              <option value="16" selected>16 × 16</option>
+              <option value="24">24 × 24</option>
+            </select>
+          </label>
+          <div class="btn-row">
+            <button id="undoBtn" class="btn">↩️ Undo</button>
+            <button id="fillGrassBtn" class="btn">🌿 Bush fill</button>
+            <button id="clearBtn" class="btn danger">🗑️ Clear</button>
+          </div>
+          <p class="hint">Tile par click / drag karke item lagao. Right‑click se erase.</p>
+        </aside>
+
+        <div class="board-wrap card">
+          <div id="board" class="board"></div>
+        </div>
+
+        <aside class="stats card">
+          <h2>Garden Stats</h2>
+          <ul id="statsList" class="stats-list"></ul>
+          <div class="score">
+            <span>Beauty score</span>
+            <strong id="beauty">0</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MAP INFO -->
+    <section id="map" class="panel">
+      <div class="card narrow">
+        <h2>Craftland Map Details</h2>
+        <label>Map name <input id="mapName" placeholder="e.g. Free Garden Paradise" /></label>
+        <label>Map code <input id="mapCode" placeholder="#FREEFIRE1A2B3C" /></label>
+        <label>Mode
+          <select id="mapMode">
+            <option>Chill / Explore</option>
+            <option>Parkour</option>
+            <option>Team Deathmatch</option>
+            <option>Hide &amp; Seek</option>
+            <option>Custom</option>
+          </select>
+        </label>
+        <label>Max players <input id="mapPlayers" type="number" min="1" max="50" value="8" /></label>
+        <label>Description <textarea id="mapDesc" rows="4" placeholder="Map ke baare mein likho..."></textarea></label>
+        <div class="btn-row">
+          <button id="copyCodeBtn" class="btn primary">📋 Code copy karo</button>
+          <button id="shareBtn" class="btn">🔗 Share text</button>
+        </div>
+        <p id="mapMsg" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- TASKS -->
+    <section id="tasks" class="panel">
+      <div class="card narrow">
+        <h2>Build Checklist</h2>
+        <form id="taskForm" class="task-form">
+          <input id="taskInput" placeholder="Naya task (e.g. Fountain ke paas benches lagana)" />
+          <button class="btn primary">Add</button>
+        </form>
+        <ul id="taskList" class="task-list"></ul>
+        <p id="taskProgress" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- DATA -->
+    <section id="data" class="panel">
+      <div class="card narrow">
+        <h2>Save / Load</h2>
+        <p>Sab kuch aapke browser mein auto‑save hota hai. Backup ke liye file download karo.</p>
+        <div class="btn-row">
+          <button id="exportBtn" class="btn primary">⬇️ Export JSON</button>
+          <label class="btn">⬆️ Import JSON<input id="importFile" type="file" accept="application/json" hidden /></label>
+          <button id="pngBtn" class="btn">🖼️ Layout PNG</button>
+        </div>
+        <p id="dataMsg" class="msg"></p>
+        <div class="note">
+          <strong>Note:</strong> Ye website game ko direct control nahi karti — Garena koi public API nahi deta.
+          Yahan garden plan karo, phir Craftland editor mein same layout banao, aur map code yahan save rakho.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
