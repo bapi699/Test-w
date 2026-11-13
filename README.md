@@ -15,3 +15,7 @@ Online chalane ke liye GitHub Pages on karo: Settings → Pages → Branch selec
 
 > Note: Garena Craftland ka koi public API nahi hai, isliye ye website game ko direct control nahi karti.
 > Yahan plan banao, phir Craftland editor mein wahi layout build karo.
+
+## OTT Kab Aayegi? (ott-app)
+
+India mein movies ki OTT release date dikhane wali app [`ott-app/`](ott-app/) folder mein hai. Chalane ka tareeka: [ott-app/README.md](ott-app/README.md)

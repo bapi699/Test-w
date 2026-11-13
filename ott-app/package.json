@@ -1,0 +1,16 @@
+{
+  "name": "ott-kab-aayegi",
+  "private": true,
+  "version": "1.0.0",
+  "description": "India mein movies ki OTT release date aur platform (Hinglish UI)",
+  "scripts": {
+    "setup": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "check": "npm run check --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
